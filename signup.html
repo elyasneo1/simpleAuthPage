@@ -12,7 +12,7 @@
             <br>
 
             <button id="btn" type="button" name="btn">Sign Up</button>
-            <a href="./login.html" >login</a>
+            <a href="./login.html">login</a>
         </div>
     </div>
     </div>
@@ -23,7 +23,7 @@
         let password = document.getElementById('password')
         let xhttp = new XMLHttpRequest();
         btn.addEventListener('click', () => {
-        
+
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     let json = JSON.parse(this.responseText)
@@ -34,7 +34,8 @@
                 username: username.value,
                 password: password.value
             }
-            xhttp.open("Post", "http://192.168.1.135:3000/signup", true);
+            xhttp.open("Post", "http://127.0.0.1:3000/signup", true);
+            xhttp.withCredentials = true
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhttp.send(JSON.stringify(json));
         })
